@@ -4,7 +4,7 @@ const mysql = require('mysql2');
 const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 
