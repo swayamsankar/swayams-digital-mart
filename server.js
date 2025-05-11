@@ -19,7 +19,7 @@ const db = mysql.createConnection({
     user: 'root',
     password: 'Swayam#2004',
     database: 'swayams_digital_mart',
-    port: 3306,
+    port: 4000,
     connectTimeout: 10000
 });
 
