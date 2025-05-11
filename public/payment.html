@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Swayam's Digital Mart</title>
+    <link rel="stylesheet" href="css/payment.css"> <!-- Linking CSS file -->
+</head>
+<body>
+
+    <header>
+        <h1>Payment Section</h1>
+        <nav>
+            <a href="index.html" style="
+                display: inline-block;
+                padding: 10px 20px;
+                margin: 0 10px;
+                background: rgba(255,255,255,0.1);
+                color: white;
+                text-decoration: none;
+                border-radius: 25px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(255,255,255,0.2);
+                backdrop-filter: blur(5px);
+            ">Home</a>
+            <a href="cart.html" style="
+                display: inline-block;
+                padding: 10px 20px;
+                margin: 0 10px;
+                background: rgba(255,255,255,0.1);
+                color: white;
+                text-decoration: none;
+                border-radius: 25px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(255,255,255,0.2);
+                backdrop-filter: blur(5px);
+            ">Cart</a>
+            <a href="wishlist.html" style="
+                display: inline-block;
+                padding: 10px 20px;
+                margin: 0 10px;
+                background: rgba(255,255,255,0.1);
+                color: white;
+                text-decoration: none;
+                border-radius: 25px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(255,255,255,0.2);
+                backdrop-filter: blur(5px);
+            ">Wishlist</a>
+        </nav>
+    </header>
+
+    <section class="payment-container">
+        <h2>Order Summary</h2>
+        <div id="order-details"></div>
+        <p><strong>Total Price:</strong> ₹<span id="total-price">0</span></p>
+        <p><strong>Discount Applied:</strong> ₹<span id="discount">0</span></p>
+        <p><strong>Final Price:</strong> ₹<span id="final-price">0</span></p>
+        
+        <button id="confirm-order">Proceed to Pay</button>
+    </section>
+
+    <!-- Popup Confirmation -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h2>Order Placed Successfully!</h2>
+            <p>Thank you for shopping with us.</p>
+            <button onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+    <script src="js/payment.js"></script> <!-- Linking JavaScript file -->
+    <script src="js/cart.js"></script> <!-- Linking Cart JavaScript file -->
+</body>
+</html>

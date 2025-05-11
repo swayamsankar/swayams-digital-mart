@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartwatches - Swayam's Digital Mart</title>
+    <link rel="stylesheet" href="css/smartwatch.css">
+</head>
+<body>
+
+    <header>
+        <h1>Smartwatch Collection</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="wishlist.html">Wishlist</a>
+        </nav>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search smartwatches...">
+            <button onclick="searchProducts()">Search</button>
+        </div>
+        <div class="filter-container">
+            <select id="priceFilter">
+                <option value="">Price Range</option>
+                <option value="0-5999">Under ₹6,000</option>
+                <option value="6000-7999">₹6,000 - ₹7,999</option>
+                <option value="8000-9999">₹8,000 - ₹9,999</option>
+                <option value="10000-999999">Above ₹10,000</option>
+            </select>
+            <select id="ratingFilter">
+                <option value="">Rating</option>
+                <option value="4.5">4.5 Stars & Above</option>
+                <option value="4.0">4.0 Stars & Above</option>
+                <option value="3.5">3.5 Stars & Above</option>
+            </select>
+            <button onclick="applyFilters()">Apply Filters</button>
+        </div>
+    </header>
+
+    <section class="products">
+        <div class="product" data-price="5999" data-rating="4.2" onclick="viewProductDetails('Leaf Watch X121', '1.78 AMOLED Display | 24/7 Heart Rate Monitoring | 100+ Sports Modes | 7 Days Battery Life | IP68 Water Resistant', 5999, ['images/smartwatch1.jpg', 'images/smartwatch1.1.jpg', 'images/smartwatch1.2.jpg', 'images/smartwatch1.3.jpg'], '★★★★☆ (4.2/5)')">
+            <img src="images/smartwatch1.jpg" alt="Leaf Watch X121">
+            <h2>Leaf Watch X121</h2>
+            <p>1.78" AMOLED Display | 24/7 Heart Rate Monitoring | 100+ Sports Modes | 7 Days Battery Life | IP68 Water Resistant</p>
+            <div class="rating">★★★★☆ (4.2/5)</div>
+            <p>Price: ₹5,999</p>
+        </div>
+
+        <div class="product" data-price="7499" data-rating="4.8" onclick="viewProductDetails('Apple Watch Series 9', 'Built-in GPS Navigation | Sleep Quality Analysis | Blood Oxygen Monitor | 10 Days Battery Life | Bluetooth Calling Support', 7499, ['images/smartwatch2.jpg', 'images/smartwatch2.1.jpg', 'images/smartwatch2.2.jpg', 'images/smartwatch2.3.jpg'], '★★★★★ (4.8/5)')">
+            <img src="images/smartwatch2.jpg" alt="Apple Watch Series 9">
+            <h2>Apple Watch Series 9</h2>
+            <p>Built-in GPS Navigation | Sleep Quality Analysis | Blood Oxygen Monitor | 10 Days Battery Life | Bluetooth Calling Support</p>
+            <div class="rating">★★★★★ (4.8/5)</div>
+            <p>Price: ₹7,499</p>
+        </div>
+
+        <div class="product" data-price="8999" data-rating="4.5" onclick="viewProductDetails('Relögio MORMAII Smartwatch', '1.4 Full Touch OLED Display | 5ATM Waterproof | Stress Monitor | Womens Health Tracking | Wireless Charging', 8999, ['images/smartwatch3.jpg', 'images/smartwatch3.1.jpg', 'images/smartwatch3.2.jpg', 'images/smartwatch3.3.jpg'], '★★★★☆ (4.5/5)')">
+            <img src="images/smartwatch3.jpg" alt="Relögio MORMAII Smartwatch">
+            <h2>Relögio MORMAII Smartwatch</h2>
+            <p>1.4" Full Touch OLED Display | 5ATM Waterproof | Stress Monitor | Women's Health Tracking | Wireless Charging</p>
+            <div class="rating">★★★★☆ (4.5/5)</div>
+            <p>Price: ₹8,999</p>
+        </div>
+        <div class="product" data-price="10499" data-rating="4.9" onclick="viewProductDetails('boAt Xtend Plus', 'ECG & SpO2 Monitoring | Alexa Built-in | 1.69 HD Display | 14 Days Battery Life | 700+ Watch Faces', 10499, ['images/smartwatch4.jpg', 'images/smartwatch4.1.jpg', 'images/smartwatch4.2.jpg', 'images/smartwatch4.3.jpg'], '★★★★★ (4.9/5)')">
+            <img src="images/smartwatch4.jpg" alt="boAt Xtend Plus">
+            <h2>boAt Xtend Plus</h2>
+            <p>ECG & SpO2 Monitoring | Alexa Built-in | 1.69" HD Display | 14 Days Battery Life | 700+ Watch Faces</p>
+            <div class="rating">★★★★★ (4.9/5)</div>
+            <p>Price: ₹10,499</p>
+        </div>
+        <div class="product" data-price="12999" data-rating="4.7" onclick="viewProductDetails('Samsung Galaxy Watch6', 'Advanced Sleep Coaching | Body Composition Analysis | 40mm Super AMOLED | 5ATM Water Resistant', 12999, ['images/smartwatch5.webp', 'images/smartwatch5.1.webp', 'images/smartwatch5.2.webp', 'images/smartwatch5.3.webp'], '★★★★☆ (4.7/5)')">
+            <img src="images/smartwatch5.webp" alt="Samsung Galaxy Watch6">
+            <h2>Samsung Galaxy Watch6</h2>
+            <p>Advanced Sleep Coaching | Body Composition Analysis | 40mm Super AMOLED | 5ATM Water Resistant</p>
+            <div class="rating">★★★★☆ (4.7/5)</div>
+            <p>Price: ₹12,999</p>
+        </div>
+
+        <div class="product" data-price="8999" data-rating="4.3" onclick="viewProductDetails('Noise ColorFit Pro 4', '1.8 HD Display | 150+ Watch Faces | SpO2 Monitoring | 10 Days Battery Life | Smart Notifications', 8999, ['images/smartwatch6.jpg', 'images/smartwatch6.1.jpg', 'images/smartwatch6.2.jpg', 'images/smartwatch6.3.jpg'], '★★★★☆ (4.3/5)')">
+            <img src="images/smartwatch6.jpg" alt="Noise ColorFit Pro 4">
+            <h2>Noise ColorFit Pro 4</h2>
+            <p>1.8" HD Display | 150+ Watch Faces | SpO2 Monitoring | 10 Days Battery Life | Smart Notifications</p>
+            <div class="rating">★★★★☆ (4.3/5)</div>
+            <p>Price: ₹8,999</p>
+        </div>
+
+        <div class="product" data-price="15999" data-rating="4.9" onclick="viewProductDetails('Garmin Venu 3', 'Advanced Sleep Monitoring | Built-in GPS | 1.4 AMOLED | 14 Days Battery | Music Storage', 15999, ['images/smartwatch7.jpg', 'images/smartwatch7.1.jpg', 'images/smartwatch7.2.jpg', 'images/smartwatch7.3.jpg'], '★★★★★ (4.9/5)')">
+            <img src="images/smartwatch7.jpg" alt="Garmin Venu 3">
+            <h2>Garmin Venu 3</h2>
+            <p>Advanced Sleep Monitoring | Built-in GPS | 1.4" AMOLED | 14 Days Battery | Music Storage</p>
+            <div class="rating">★★★★★ (4.9/5)</div>
+            <p>Price: ₹15,999</p>
+        </div>
+
+        <div class="product" data-price="6999" data-rating="4.1" onclick="viewProductDetails('Fire-Boltt Ninja Pro', '1.69 HD Display | 100+ Sports Modes | SpO2 Monitoring | 7 Days Battery | IP67 Water Resistant', 6999, ['images/smartwatch8.jpg', 'images/smartwatch8.1.jpg', 'images/smartwatch8.2.jpg', 'images/smartwatch8.3.jpg'], '★★★★☆ (4.1/5)')">
+            <img src="images/smartwatch8.jpg" alt="Fire-Boltt Ninja Pro">
+            <h2>Fire-Boltt Ninja Pro</h2>
+            <p>1.69" HD Display | 100+ Sports Modes | SpO2 Monitoring | 7 Days Battery | IP67 Water Resistant</p>
+            <div class="rating">★★★★☆ (4.1/5)</div>
+            <p>Price: ₹6,999</p>
+        </div>
+
+        <div class="product" data-price="18999" data-rating="4.8" onclick="viewProductDetails('Fitbit Sense 2', 'Stress Management Tools | ECG App | 6+ Days Battery | AMOLED Display | Built-in GPS', 18999, ['images/smartwatch9.jpg', 'images/smartwatch9.1.jpg', 'images/smartwatch9.2.jpg', 'images/smartwatch9.3.jpg'], '★★★★★ (4.8/5)')">
+            <img src="images/smartwatch9.jpg" alt="Fitbit Sense 2">
+            <h2>Fitbit Sense 2</h2>
+            <p>Stress Management Tools | ECG App | 6+ Days Battery | AMOLED Display | Built-in GPS</p>
+            <div class="rating">★★★★★ (4.8/5)</div>
+            <p>Price: ₹18,999</p>
+        </div>
+    </section>
+
+    <script>
+        function viewProductDetails(name, description, price, images) {
+            const product = {
+                name: name,
+                description: description,
+                price: price,
+                images: images
+            };
+            localStorage.setItem("selectedProduct", JSON.stringify(product));
+            window.location.href = "productdetails.html";
+        }
+
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+            
+            products.forEach(product => {
+                const productName = product.querySelector('h2').textContent.toLowerCase();
+                if (productName.includes(searchTerm)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <script src="js/smartwatch.js"></script>
+</body>
+</html>

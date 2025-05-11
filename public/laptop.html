@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptops - Swayam's Digital Mart</title>
+    <link rel="stylesheet" href="css/laptop.css">
+</head>
+<body>
+
+    <header>
+        <h1>Laptops Collection</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="wishlist.html">Wishlist</a>
+        </nav>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search laptops...">
+            <button onclick="searchProducts()">Search</button>
+        </div>
+        <div class="filter-container">
+            <select id="priceFilter">
+                <option value="">Select Price Range</option>
+                <option value="0-50000">Under ₹50,000</option>
+                <option value="50000-70000">₹50,000 - ₹70,000</option>
+                <option value="70000-90000">₹70,000 - ₹90,000</option>
+                <option value="90000-110000">₹90,000 - ₹1,10,000</option>
+                <option value="110000+">Above ₹1,10,000</option>
+            </select>
+            <select id="ratingFilter">
+                <option value="">Select Rating</option>
+                <option value="4.5">4.5 & above</option>
+                <option value="4.0">4.0 & above</option>
+                <option value="3.5">3.5 & above</option>
+            </select>
+            <button onclick="applyFilters()">Apply Filters</button>
+        </div>
+    </header>
+
+    <section class="products">
+        <div class="product" data-price="49999" data-rating="4.3" onclick="viewProductDetails('HP Victus 39.6 cm (15.6) Gaming Laptop 15', 'AMD Ryzen 5 5600H | 16GB DDR4 RAM | 512GB SSD | NVIDIA GeForce GTX 1650 | FHD Display', 49999, ['images/laptop1.webp', 'images/laptop1.1.jpg', 'images/laptop1.2.jpg', 'images/laptop1.3.jpg'])">
+            <img src="images/laptop1.webp" alt="Laptop Model 1">
+            <h2>HP Victus 39.6 cm (15.6) Gaming Laptop 15</h2>
+            <p>AMD Ryzen 5 5600H | 16GB DDR4 RAM | 512GB SSD | NVIDIA GeForce GTX 1650 | 15.6" FHD Display</p>
+            <div class="rating">★★★★☆ (4.3/5)</div>
+            <p>Price: ₹49,999</p>
+        </div>
+
+        <div class="product" data-price="69999" data-rating="4.8" onclick="viewProductDetails('Apple Macbook Pro MF840H', 'Apple M1 Pro chip | 16GB Unified Memory | 512GB SSD | Liquid Retina XDR Display | 17hr Battery Life', 69999, ['images/laptop2.jpg', 'images/laptop2.1.jpg', 'images/laptop2.2.jpg', 'images/laptop2.3.jpg'])">
+            <img src="images/laptop2.jpg" alt="Laptop Model 2">
+            <h2>Apple Macbook Pro MF840H</h2>
+            <p>Apple M1 Pro chip | 16GB Unified Memory | 512GB SSD | 14.2" Liquid Retina XDR Display | 17hr Battery Life</p>
+            <div class="rating">★★★★★ (4.8/5)</div>
+            <p>Price: ₹69,999</p>
+        </div>
+
+        <div class="product" data-price="89999" data-rating="4.5" onclick="viewProductDetails('Lenovo Lenovo Legion 9', 'Intel Core i7-12700H | 16GB DDR5 RAM | 1TB SSD | NVIDIA GeForce RTX 3060 | 15.6 QHD 165Hz Display', 89999, ['images/laptop3.jpg', 'images/laptop3.1.jpg', 'images/laptop3.2.jpg', 'images/laptop3.3.jpg'], '★★★★☆ (4.5/5)')">
+            <img src="images/laptop3.jpg" alt="Laptop Model 3">
+            <h2>Lenovo Lenovo Legion 9</h2>
+            <p>Intel Core i7-12700H | 16GB DDR5 RAM | 1TB SSD | NVIDIA GeForce RTX 3060 | 15.6" QHD 165Hz Display</p>
+            <div class="rating">★★★★☆ (4.5/5)</div>
+            <p>Price: ₹89,999</p>
+        </div>
+
+        <div class="product" data-price="109999" data-rating="4.9" onclick="viewProductDetails('MSI Titan 18 HX A14VlG-081CA', 'Intel Core i9-13980HX | 32GB DDR5 RAM | 2TB SSD | NVIDIA GeForce RTX 4090 | 18 UHD+ Mini-LED Display', 109999, ['images/laptop4.jpg', 'images/laptop4.1.jpg', 'images/laptop4.2.jpg', 'images/laptop4.3.jpg'], '★★★★★ (4.9/5)')">
+            <img src="images/laptop4.jpg" alt="Laptop Model 4">
+            <h2>MSI Titan 18 HX A14VlG-081CA</h2>
+            <p>Intel Core i9-13980HX | 32GB DDR5 RAM | 2TB SSD | NVIDIA GeForce RTX 4090 | 18" UHD+ Mini-LED Display</p>
+            <div class="rating">★★★★★ (4.9/5)</div>
+            <p>Price: ₹1,09,999</p>
+        </div>
+
+        <div class="product" data-price="54999" data-rating="4.2" onclick="viewProductDetails('Dell Inspiron 15 3520', 'Intel Core i5-1235U | 8GB DDR4 RAM | 512GB SSD | Intel Iris Xe Graphics | 15.6 FHD Display', 54999, ['images/laptop5.webp', 'images/laptop5.1.jpg', 'images/laptop5.2.jpg', 'images/laptop5.3.jpg'])">
+            <img src="images/laptop5.webp" alt="Laptop Model 5">
+            <h2>Dell Inspiron 15 3520</h2>
+            <p>Intel Core i5-1235U | 8GB DDR4 RAM | 512GB SSD | Intel Iris Xe Graphics | 15.6" FHD Display</p>
+            <div class="rating">★★★★☆ (4.2/5)</div>
+            <p>Price: ₹54,999</p>
+        </div>
+
+        <div class="product" data-price="79999" data-rating="4.6" onclick="viewProductDetails('Asus ROG Zephyrus G14', 'AMD Ryzen 7 7735HS | 16GB DDR5 RAM | 1TB SSD | NVIDIA GeForce RTX 3050 | 14 QHD 120Hz Display', 79999, ['images/laptop6.jpg', 'images/laptop6.1.jpg', 'images/laptop6.2.jpg', 'images/laptop6.3.jpg'])">
+            <img src="images/laptop6.jpg" alt="Laptop Model 6">
+            <h2>Asus ROG Zephyrus G14</h2>
+            <p>AMD Ryzen 7 7735HS | 16GB DDR5 RAM | 1TB SSD | NVIDIA GeForce RTX 3050 | 14" QHD 120Hz Display</p>
+            <div class="rating">★★★★☆ (4.6/5)</div>
+            <p>Price: ₹79,999</p>
+        </div>
+
+        <div class="product" data-price="94999" data-rating="4.7" onclick="viewProductDetails('Acer Predator Helios 300', 'Intel Core i7-12700H | 16GB DDR5 RAM | 1TB SSD | NVIDIA GeForce RTX 3060 | 15.6 QHD 165Hz Display', 94999, ['images/laptop7.jpg', 'images/laptop7.1.jpg', 'images/laptop7.2.jpg', 'images/laptop7.3.jpg'])">
+            <img src="images/laptop7.jpg" alt="Laptop Model 7">
+            <h2>Acer Predator Helios 300</h2>
+            <p>Intel Core i7-12700H | 16GB DDR5 RAM | 1TB SSD | NVIDIA GeForce RTX 3060 | 15.6" QHD 165Hz Display</p>
+            <div class="rating">★★★★☆ (4.7/5)</div>
+            <p>Price: ₹94,999</p>
+        </div>
+
+        <div class="product" data-price="119999" data-rating="4.9" onclick="viewProductDetails('Razer Blade 15', 'Intel Core i7-12800H | 16GB DDR5 RAM | 1TB SSD | NVIDIA GeForce RTX 3070 Ti | 15.6 QHD 240Hz Display', 119999, ['images/laptop8.jpg', 'images/laptop8.1.jpg', 'images/laptop8.2.jpg', 'images/laptop8.3.jpg'])">
+            <img src="images/laptop8.jpg" alt="Laptop Model 8">
+            <h2>Razer Blade 15</h2>
+            <p>Intel Core i7-12800H | 16GB DDR5 RAM | 1TB SSD | NVIDIA GeForce RTX 3070 Ti | 15.6" QHD 240Hz Display</p>
+            <div class="rating">★★★★★ (4.9/5)</div>
+            <p>Price: ₹1,19,999</p>
+        </div>
+
+        <div class="product" data-price="64999" data-rating="4.4" onclick="viewProductDetails('HP Pavilion 15-eg2000TU', 'Intel Core i5-1235U | 16GB DDR4 RAM | 512GB SSD | Intel Iris Xe Graphics | 15.6 FHD Display', 64999, ['images/laptop9.jpg', 'images/laptop9.1.jpg', 'images/laptop9.2.jpg', 'images/laptop9.3.jpg'])">
+            <img src="images/laptop9.jpg" alt="Laptop Model 9">
+            <h2>HP Pavilion 15-eg2000TU</h2>
+            <p>Intel Core i5-1235U | 16GB DDR4 RAM | 512GB SSD | Intel Iris Xe Graphics | 15.6" FHD Display</p>
+            <div class="rating">★★★★☆ (4.4/5)</div>
+            <p>Price: ₹64,999</p>
+        </div>
+        <div class="product" data-price="89999" data-rating="4.8" onclick="viewProductDetails('Lenovo ThinkPad X1 Carbon Gen 10', 'Intel Core i7-1260P | 16GB LPDDR5 RAM | 1TB SSD | Intel Iris Xe Graphics | 14 WUXGA Display', 89999, ['images/laptop10.webp', 'images/laptop10.1.jpg', 'images/laptop10.2.jpg', 'images/laptop10.3.jpg'])">
+           <img src="images/laptop10.webp" alt="Laptop Model 10">
+           <h2>Lenovo ThinkPad X1 Carbon Gen 10</h2>
+           <p>Intel Core i7-1260P | 16GB LPDDR5 RAM | 1TB SSD | Intel Iris Xe Graphics | 14" WUXGA Display</p>
+           <div class="rating">★★★★☆ (4.8/5)</div>
+           <p>Price: ₹89,999</p>
+        </div>
+    </section>
+
+    <script>
+        function viewProductDetails(name, description, price, images) {
+            const product = {
+                name: name,
+                description: description,
+                price: price,
+                images: images
+            };
+            localStorage.setItem("selectedProduct", JSON.stringify(product));
+            window.location.href = "productdetails.html";
+        }
+
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+            
+            products.forEach(product => {
+                const productName = product.querySelector('h2').textContent.toLowerCase();
+                if (productName.includes(searchTerm)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        function applyFilters() {
+            const priceFilter = document.getElementById('priceFilter').value;
+            const ratingFilter = document.getElementById('ratingFilter').value;
+            const products = document.querySelectorAll('.product');
+
+            products.forEach(product => {
+                const price = parseFloat(product.getAttribute('data-price'));
+                const rating = parseFloat(product.getAttribute('data-rating'));
+                let priceMatch = true;
+                let ratingMatch = true;
+
+                // Price filter logic
+                if (priceFilter) {
+                    if (priceFilter.endsWith('+')) {
+                        const minPrice = parseFloat(priceFilter);
+                        priceMatch = price >= minPrice;
+                    } else {
+                        const [minPrice, maxPrice] = priceFilter.split('-').map(Number);
+                        priceMatch = price >= minPrice && price <= maxPrice;
+                    }
+                }
+
+                // Rating filter logic
+                if (ratingFilter) {
+                    ratingMatch = rating >= parseFloat(ratingFilter);
+                }
+
+                if (priceMatch && ratingMatch) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <script src="js/laptop.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Headphones - Swayam's Digital Mart</title>
+    <link rel="stylesheet" href="css/Headphone.css">
+</head>
+<body>
+
+    <header>
+        <h1>Headphones Collection</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="wishlist.html">Wishlist</a>
+        </nav>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search headphones...">
+            <button onclick="searchProducts()">Search</button>
+            <div class="filter-container">
+                <select id="priceRange">
+                    <option value="">Select Price Range</option>
+                    <option value="0-3000">₹0 - ₹3,000</option>
+                    <option value="3001-5000">₹3,001 - ₹5,000</option>
+                    <option value="5001-10000">₹5,001 - ₹10,000</option>
+                </select>
+                <select id="ratingFilter">
+                    <option value="">Select Rating</option>
+                    <option value="4.5">4.5 stars & above</option>
+                    <option value="4.0">4.0 stars & above</option>
+                    <option value="3.5">3.5 stars & above</option>
+                </select>
+                <button onclick="applyFilters()">Apply Filters</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="products">
+        <div class="product" data-price="2999" data-rating="4.3" onclick="viewProductDetails('Beats Studio Pro', 'Active Noise Cancelling | Up to 40 hours of battery life | Spatial Audio with dynamic head tracking', 2999, ['images/Headphone1.jpg', 'images/Headphone1.1.jpg', 'images/Headphone1.2.jpg', 'images/Headphone1.3.jpg'], '★★★★☆ (4.3/5)')">
+            <img src="images/Headphone1.jpg" alt="Headphone Model 1">
+            <h2>Beats Studio Pro</h2>
+            <p>Active Noise Cancelling | Up to 40 hours of battery life | Spatial Audio with dynamic head tracking</p>
+            <div class="rating">★★★★☆ (4.3/5)</div>
+            <p>Price: ₹2,999</p>
+        </div>
+
+        <div class="product" data-price="3499" data-rating="4.8" onclick="viewProductDetails('Beats Studi03', 'Bluetooth 5.0 connectivity | Foldable design for portability | Built-in microphone for calls', 3499, ['images/Headphone2.jpg', 'images/Headphone2.1.webp', 'images/Headphone2.2.webp', 'images/Headphone2.3.jpg'], '★★★★★ (4.8/5)')">
+            <img src="images/Headphone2.jpg" alt="Headphone Model 2">
+            <h2>Beats Studi03</h2>
+            <p>Bluetooth 5.0 connectivity | Foldable design for portability | Built-in microphone for calls</p>
+            <div class="rating">★★★★★ (4.8/5)</div>
+            <p>Price: ₹3,499</p>
+        </div>
+
+        <div class="product" data-price="4999" data-rating="4.5" onclick="viewProductDetails('JBL Tune 520BT', 'Wireless Bluetooth 5.3 | 57 hours of playtime | Multi-point connection | Voice assistant support', 4999, ['images/Headphone3.jpg', 'images/Headphone3.1.jpg', 'images/Headphone3.2.jpg', 'images/Headphone3.3.jpg'], '★★★★☆ (4.5/5)')">
+            <img src="images/Headphone3.jpg" alt="Headphone Model 3">
+            <h2>JBL Tune 520BT</h2>
+            <p>Wireless Bluetooth 5.3 | 57 hours of playtime | Multi-point connection | Voice assistant support</p>
+            <div class="rating">★★★★☆ (4.5/5)</div>
+            <p>Price: ₹4,999</p>
+        </div>
+
+        <div class="product" data-price="5999" data-rating="4.9" onclick="viewProductDetails('Noise TWO Wireless', '50mm dynamic drivers | 30 hours playback time | Fast charging with 10min=5hrs playtime', 5999, ['images/Headphone4.jpg', 'images/Headphone4.1.webp', 'images/Headphone4.2.jpg', 'images/Headphone4.3.jpg'], '★★★★★ (4.9/5)')">
+            <img src="images/Headphone4.jpg" alt="Headphone Model 4">
+            <h2>Noise TWO Wireless</h2>
+            <p>50mm dynamic drivers | 30 hours playback time | Fast charging with 10min=5hrs playtime</p>
+            <div class="rating">★★★★★ (4.9/5)</div>
+            <p>Price: ₹5,999</p>
+        </div>
+
+        <div class="product" data-price="3999" data-rating="4.2" onclick="viewProductDetails('Sony WH-CH720N', 'Digital Noise Cancelling | 35 hours battery life | Quick charging | Alexa built-in', 3999, ['images/Headphone5.jpg', 'images/Headphone5.1.jpg', 'images/Headphone5.2.jpg', 'images/Headphone5.3.jpg'], '★★★★☆ (4.2/5)')">
+            <img src="images/Headphone5.jpg" alt="Headphone Model 5">
+            <h2>Sony WH-CH720N</h2>
+            <p>Digital Noise Cancelling | 35 hours battery life | Quick charging | Alexa built-in</p>
+            <div class="rating">★★★★☆ (4.2/5)</div>
+            <p>Price: ₹3,999</p>
+        </div>
+
+        <div class="product" data-price="4999" data-rating="4.6" onclick="viewProductDetails('Bose QuietComfort 45', 'World-class noise cancellation | 24 hours battery life | Tri-port acoustic architecture', 4999, ['images/Headphone6.jpg', 'images/Headphone6.1.jpg', 'images/Headphone6.2.jpg', 'images/Headphone6.3.jpg'], '★★★★☆ (4.6/5)')">
+            <img src="images/Headphone6.jpg" alt="Headphone Model 6">
+            <h2>Bose QuietComfort 45</h2>
+            <p>World-class noise cancellation | 24 hours battery life | Tri-port acoustic architecture</p>
+            <div class="rating">★★★★☆ (4.6/5)</div>
+            <p>Price: ₹4,999</p>
+        </div>
+
+        <div class="product" data-price="6999" data-rating="4.7" onclick="viewProductDetails('Sennheiser HD 450BT', 'Active Noise Cancellation | 30 hours battery life | Smart Control app | Bluetooth 5.0', 6999, ['images/Headphone7.jpg', 'images/Headphone7.1.jpg', 'images/Headphone7.2.jpg', 'images/Headphone7.3.webp'], '★★★★☆ (4.7/5)')">
+            <img src="images/Headphone7.jpg" alt="Headphone Model 7">
+            <h2>Sennheiser HD 450BT</h2>
+            <p>Active Noise Cancellation | 30 hours battery life | Smart Control app | Bluetooth 5.0</p>
+            <div class="rating">★★★★☆ (4.7/5)</div>
+            <p>Price: ₹6,999</p>
+        </div>
+
+        <div class="product" data-price="2499" data-rating="4.1" onclick="viewProductDetails('JBL Live 460NC', 'Adaptive Noise Cancelling | 40 hours battery life | Voice assistant support | Foldable design', 2499, ['images/Headphone8.jpg', 'images/Headphone8.1.jpg', 'images/Headphone8.2.jpg', 'images/Headphone8.3.jpg'], '★★★★☆ (4.1/5)')">
+            <img src="images/Headphone8.jpg" alt="Headphone Model 8">
+            <h2>JBL Live 460NC</h2>
+            <p>Adaptive Noise Cancelling | 40 hours battery life | Voice assistant support | Foldable design</p>
+            <div class="rating">★★★★☆ (4.1/5)</div>
+            <p>Price: ₹2,499</p>
+        </div>
+
+        <div class="product" data-price="5499" data-rating="4.4" onclick="viewProductDetails('Skullcandy Crusher Evo', 'Sensory Bass | 40 hours battery life | Personal Sound | Tile finding technology', 5499, ['images/Headphone9.jpg', 'images/Headphone9.1.jpg', 'images/Headphone9.2.webp', 'images/Headphone9.3.jpg'], '★★★★☆ (4.4/5)')">
+            <img src="images/Headphone9.jpg" alt="Headphone Model 9">
+            <h2>Skullcandy Crusher Evo</h2>
+            <p>Sensory Bass | 40 hours battery life | Personal Sound | Tile finding technology</p>
+            <div class="rating">★★★★☆ (4.4/5)</div>
+            <p>Price: ₹5,499</p>
+        </div>
+
+        <div class="product" data-price="7999" data-rating="4.8" onclick="viewProductDetails('Apple AirPods Max', 'Active Noise Cancellation | Spatial audio | 20 hours battery life | Digital Crown control', 7999, ['images/Headphone10.webp', 'images/Headphone10.1.jpg', 'images/Headphone10.2.jpg', 'images/Headphone10.3.avif'], '★★★★★ (4.8/5)')">
+            <img src="images/Headphone10.webp" alt="Headphone Model 10">
+            <h2>Apple AirPods Max</h2>
+            <p>Active Noise Cancellation | Spatial audio | 20 hours battery life | Digital Crown control</p>
+            <div class="rating">★★★★★ (4.8/5)</div>
+            <p>Price: ₹7,999</p>
+    </section>
+
+    <script>
+        function viewProductDetails(name, description, price, images) {
+            const product = {
+                name: name,
+                description: description,
+                price: price,
+                images: images
+            };
+            localStorage.setItem("selectedProduct", JSON.stringify(product));
+            window.location.href = "productdetails.html";
+        }
+
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+            
+            products.forEach(product => {
+                const productName = product.querySelector('h2').textContent.toLowerCase();
+                if (productName.includes(searchTerm)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        function applyFilters() {
+            const priceRange = document.getElementById('priceRange').value;
+            const ratingFilter = document.getElementById('ratingFilter').value;
+            const products = document.querySelectorAll('.product');
+
+            products.forEach(product => {
+                const productPrice = parseFloat(product.getAttribute('data-price'));
+                const productRating = parseFloat(product.getAttribute('data-rating'));
+                
+                let priceMatch = true;
+                let ratingMatch = true;
+
+                if (priceRange) {
+                    const [minPrice, maxPrice] = priceRange.split('-').map(Number);
+                    priceMatch = productPrice >= minPrice && productPrice <= maxPrice;
+                }
+
+                if (ratingFilter) {
+                    ratingMatch = productRating >= parseFloat(ratingFilter);
+                }
+
+                if (priceMatch && ratingMatch) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <script src="js/Headphone.js"></script>
+</body>
+</html>

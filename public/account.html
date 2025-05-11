@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account</title>
+    <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="css/user-details.css">
+</head>
+<body>
+    <div id="account-container">
+        <h2>My Account</h2>
+        <div class="user-info">
+            <p><strong>Username (Email):</strong> <span id="account-username"></span></p>
+        </div>
+        
+        <div class="shipping-info">
+            <h3>Shipping Details</h3>
+            <div class="input-group">
+                <label for="account-address">Address:</label>
+                <input type="text" id="account-address" placeholder="Enter your shipping address">
+            </div>
+            <div class="input-group">
+                <label for="account-pin">PIN Code:</label>
+                <input type="text" id="account-pin" placeholder="Enter your area PIN code">
+            </div>
+            <button class="save-btn" onclick="saveDetails()">Save Shipping Details</button>
+        </div>
+
+        <div class="login-details">
+            <h3>Login Details</h3>
+            <p><strong>Username:</strong> <span id="login-username"></span></p>
+            <p><strong>Email:</strong> <span id="login-email"></span></p>
+            <p><strong>Address:</strong> <span id="login-address"></span></p>
+            <p><strong>PIN Code:</strong> <span id="login-pin"></span></p>
+        </div>
+
+        <div class="order-history">
+            <h3>Order History</h3>
+            <ul id="order-history">
+                <li class="no-orders">No orders placed yet</li>
+            </ul>
+            <a href="orders.html" class="view-orders-btn">View All Orders</a>
+        </div>
+
+        <div class="account-actions">
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+    <script src="js/account.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser) {
+                document.getElementById('account-username').textContent = `${currentUser.username} (${currentUser.email})`;
+                document.getElementById('login-username').textContent = currentUser.username;
+                document.getElementById('login-email').textContent = currentUser.email;
+                document.getElementById('login-address').textContent = localStorage.getItem('address') || 'Not set';
+                document.getElementById('login-pin').textContent = localStorage.getItem('pin') || 'Not set';
+
+                // Check for existing orders
+                const orders = JSON.parse(localStorage.getItem('orders')) || [];
+                const orderHistory = document.getElementById('order-history');
+                if (orders.length > 0) {
+                    orderHistory.innerHTML = '';
+                    orders.slice(0, 3).forEach(order => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `
+                            <span class="order-date">${new Date(order.date).toLocaleDateString()}</span>
+                            <span class="order-total">₹${order.total}</span>
+                            <span class="order-status">${order.status}</span>
+                        `;
+                        orderHistory.appendChild(li);
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

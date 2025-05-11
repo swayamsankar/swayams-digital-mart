@@ -1,0 +1,222 @@
+/* Modern FAQ and Contact Section Styling */
+body {
+    background-color: #0461cc; /* Light green background */
+    background-image: linear-gradient(135deg, #5461b8 0%, #576caf 25%, #3f83cb 50%, #0d72cf 75%, #071b9a 100%);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    backdrop-filter: blur(5px);
+}
+
+.faq-item {
+    background: rgba(248, 249, 250, 0.9);
+    margin: 20px 0;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(3px);
+}
+
+.faq-item.active {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #2874f0;
+    box-shadow: 0 4px 12px rgba(40, 116, 240, 0.15);
+}
+
+.faq-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.faq-question {
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 1.1em;
+    color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+    color: #666;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+    color: #2874f0;
+}
+
+.faq-answer {
+    display: none;
+    color: #4d4d4d;
+    line-height: 1.7;
+    padding-top: 12px;
+    font-size: 0.95em;
+}
+
+.contact-form {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    backdrop-filter: blur(5px);
+}
+
+.contact-form h3 {
+    font-size: 1.5em;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form select,
+.contact-form textarea {
+    padding: 12px 20px;
+    font-size: 1em;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    width: 100%;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: #2874f0;
+    box-shadow: 0 0 0 3px rgba(40, 116, 240, 0.1);
+    outline: none;
+}
+
+.contact-form button {
+    padding: 12px 30px;
+    font-size: 1.1em;
+    background: linear-gradient(135deg, #2874f0 0%, #1a5bbf 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 116, 240, 0.3);
+}
+
+.contact-info {
+    text-align: center;
+    margin: 50px 0;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    backdrop-filter: blur(5px);
+}
+
+.contact-info h3 {
+    font-size: 1.5em;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.contact-info a {
+    color: #2874f0;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #ffffff;
+    background-color: #2874f0;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(40, 116, 240, 0.3);
+}
+
+.social-icons {
+    text-align: center;
+    margin: 40px 0;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    backdrop-filter: blur(5px);
+}
+
+.social-icons a {
+    margin: 0 20px;
+    font-size: 32px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 12px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    background-color: rgba(0,0,0,0.05);
+}
+
+/* Professional Buttons */
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+}
+
+.primary-button {
+    background-color: #2874f0;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(40, 116, 240, 0.3);
+}
+
+.primary-button:hover {
+    background-color: #1a5bbf;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(40, 116, 240, 0.4);
+}
+
+.secondary-button {
+    background-color: #ffffff;
+    color: #2874f0;
+    border: 1px solid #2874f0;
+}
+
+.secondary-button:hover {
+    background-color: #f0f5ff;
+    transform: translateY(-2px);
+}

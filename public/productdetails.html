@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details - Swayam's Digital Mart</title>
+  <link rel="stylesheet" href="css/productdetails.css" />
+</head>
+<body>
+
+  <header>
+    <h1>PRODUCT DETAILS</h1>
+    <a href="index.html" class="back-home" style="
+      display: inline-block;
+      padding: 10px 20px;
+      margin-right: 20px;
+      background: #2874f0;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    ">← Back to Home</a>
+    <nav>
+      <a href="earbuds.html" style="
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 0 10px;
+        background: rgba(255,255,255,0.1);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.2);
+        backdrop-filter: blur(5px);
+      ">Earbuds</a>
+      <a href="laptop.html" style="
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 0 10px;
+        background: rgba(255,255,255,0.1);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.2);
+        backdrop-filter: blur(5px);
+      ">Laptops</a>
+      <a href="Headphone.html" style="
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 0 10px;
+        background: rgba(255,255,255,0.1);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.2);
+        backdrop-filter: blur(5px);
+      ">Headphones</a>
+      <a href="smartwatch.html" style="
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 0 10px;
+        background: rgba(255,255,255,0.1);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.2);
+        backdrop-filter: blur(5px);
+      ">Smartwatches</a>
+      <a href="phone.html" style="
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 0 10px;
+        background: rgba(255,255,255,0.1);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.2);
+        backdrop-filter: blur(5px);
+      ">Phones</a>
+      <a href="cart.html" style="
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 0 10px;
+        background: rgba(255,255,255,0.1);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.2);
+        backdrop-filter: blur(5px);
+      ">Cart</a>
+      <a href="wishlist.html" style="
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 0 10px;
+        background: rgba(255,255,255,0.1);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.2);
+        backdrop-filter: blur(5px);
+      ">Wishlist</a>
+    </nav>
+  </header>
+
+  <section class="product-details-container">
+    <div class="product-images">
+      <img id="main-image" src="" alt="Main Product Image" class="main-image"/>
+      <div class="thumbnail-images" id="thumbnail-images">
+        <!-- Thumbnails will be dynamically inserted here -->
+      </div>
+      <div class="product-views">
+        <span id="view-count">0</span> views
+      </div>
+    </div>
+
+    <div class="product-info">
+      <h2 id="product-name">Product Name</h2>
+      <div class="rating-section">
+        <div class="stars" id="product-rating">★★★★☆</div>
+        <span class="rating-text" id="rating-text">(4.2/5)</span>
+      </div>
+      <p id="product-description">Product Description</p>
+      <p><strong>Price:</strong> ₹<span id="product-price"></span></p>
+      <div class="product-actions">
+        <button onclick="addToCart()" class="cart-btn">Add to Cart</button>
+        <button onclick="addToWishlist()" class="wishlist-btn">Add to Wishlist</button>
+      </div>
+      <div class="product-specs">
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Load product details from localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+      const product = JSON.parse(localStorage.getItem('selectedProduct'));
+      if (product) {
+        // Check and set product name
+        if (product.name) {
+          document.getElementById('product-name').textContent = product.name;
+        } else {
+          document.getElementById('product-name').textContent = "Product Name Not Available";
+        }
+
+        // Check and set product description
+        if (product.description) {
+          document.getElementById('product-description').textContent = product.description;
+        } else {
+          document.getElementById('product-description').textContent = "No description available for this product.";
+        }
+
+        // Check and set product price
+        if (product.price) {
+          document.getElementById('product-price').textContent = product.price;
+        } else {
+          document.getElementById('product-price').textContent = "Price Not Available";
+        }
+
+        // Check and set main image
+        const mainImage = document.getElementById('main-image');
+        if (product.images && product.images.length > 0) {
+          mainImage.src = product.images[0];
+        } else {
+          mainImage.src = "images/no-image.jpg"; // Fallback image
+          mainImage.alt = "Image Not Available";
+        }
+
+        // Check and add thumbnails
+        const thumbnailContainer = document.getElementById('thumbnail-images');
+        if (product.images && product.images.length > 0) {
+          product.images.forEach((image, index) => {
+            const img = document.createElement('img');
+            img.src = image;
+            img.alt = `Thumbnail ${index + 1}`;
+            img.classList.add('thumbnail');
+            img.addEventListener('click', () => {
+              mainImage.src = image;
+            });
+            thumbnailContainer.appendChild(img);
+          });
+        }
+
+        // Check and update view count
+        const viewCount = document.getElementById('view-count');
+        if (product.name) {
+          let views = parseInt(localStorage.getItem(`views_${product.name}`)) || 0;
+          views++;
+          localStorage.setItem(`views_${product.name}`, views);
+          viewCount.textContent = views;
+        } else {
+          viewCount.textContent = "N/A";
+        }
+      } else {
+        document.querySelector(".product-details-container").innerHTML =
+          "<p style='padding: 20px;'>No product selected or product data is incomplete.</p>";
+      }
+    });
+
+    function addToCart() {
+      const product = JSON.parse(localStorage.getItem('selectedProduct'));
+      if (!product) {
+        alert('No product selected to add to cart!');
+        return;
+      }
+      
+      // Check if product has required details
+      if (!product.name || !product.price) {
+        alert('Product data is incomplete. Cannot add to cart.');
+        return;
+      }
+      
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      
+      // Check if product already exists in cart
+      const existingProduct = cart.find(p => p.name === product.name);
+      if (existingProduct) {
+        alert('Product is already in your cart!');
+        return;
+      }
+      
+      // Add product to cart
+      cart.push(product);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert('Added to cart!');
+      window.location.href = 'cart.html';
+    }
+
+    function addToWishlist() {
+      const product = JSON.parse(localStorage.getItem('selectedProduct'));
+      if (!product) {
+        alert('No product selected to add to wishlist!');
+        return;
+      }
+      
+      // Check if product has required details
+      if (!product.name || !product.price) {
+        alert('Product data is incomplete. Cannot add to wishlist.');
+        return;
+      }
+      
+      let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      
+      // Check if product already exists in wishlist
+      const existingProduct = wishlist.find(p => p.name === product.name);
+      if (existingProduct) {
+        alert('Product is already in your wishlist!');
+        return;
+      }
+      
+      // Add product to wishlist
+      wishlist.push(product);
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      alert('Added to wishlist!');
+      window.location.href = 'wishlist.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication</title>
+    <link rel="stylesheet" href="css/user-details.css">
+</head>
+<body>
+    <div id="auth-container">
+        <div id="login-section">
+            <h2>Login</h2>
+            <input type="text" id="login-username" placeholder="Username/Email">
+            <input type="password" id="login-password" placeholder="Password">
+            <button onclick="handleLogin()">Login</button>
+            <p>Don't have an account? <button onclick="toggleAuth()">Sign Up</button></p>
+            <p>Forgot password? <button onclick="showResetPassword()">Reset Password</button></p>
+        </div>
+
+        <div id="signup-section" style="display: none;">
+            <h2>Sign Up</h2>
+            <input type="text" id="signup-username" placeholder="Username" required>
+            <input type="email" id="signup-email" placeholder="Email" required>
+            <input type="tel" id="signup-phone" placeholder="Phone Number" required>
+            <input type="password" id="signup-password" placeholder="Password" required>
+            <input type="password" id="signup-confirm-password" placeholder="Confirm Password" required>
+            <button onclick="signup()">Create Account</button>
+            <p>Already have an account? <button onclick="toggleAuth()">Login</button></p>
+        </div>
+
+        <div id="reset-password-section" style="display: none;">
+            <h2>Reset Password</h2>
+            <div id="reset-step1">
+                <input type="email" id="reset-email" placeholder="Enter your email">
+                <button onclick="sendResetCode()">Send Reset Code</button>
+                <p>Remember your password? <button onclick="showLogin()">Login</button></p>
+            </div>
+            <div id="reset-step2" style="display: none;">
+                <input type="text" id="reset-code" placeholder="Enter reset code">
+                <input type="password" id="new-password" placeholder="New password">
+                <input type="password" id="confirm-new-password" placeholder="Confirm new password">
+                <button onclick="resetPassword()">Reset Password</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        if (localStorage.getItem('isAuthenticated') === 'true') {
+            window.location.href = 'index.html';
+        }
+
+        function toggleAuth() {
+            const login = document.getElementById('login-section');
+            const signup = document.getElementById('signup-section');
+            login.style.display = login.style.display === 'none' ? 'block' : 'none';
+            signup.style.display = signup.style.display === 'none' ? 'block' : 'none';
+            document.getElementById('reset-password-section').style.display = 'none';
+        }
+
+        function showResetPassword() {
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('signup-section').style.display = 'none';
+            document.getElementById('reset-password-section').style.display = 'block';
+            document.getElementById('reset-step1').style.display = 'block';
+            document.getElementById('reset-step2').style.display = 'none';
+        }
+
+        function showLogin() {
+            document.getElementById('login-section').style.display = 'block';
+            document.getElementById('signup-section').style.display = 'none';
+            document.getElementById('reset-password-section').style.display = 'none';
+        }
+
+        function handleLogin() {
+            const success = login();
+            if (success) {
+                window.location.href = 'index.html';
+            }
+        }
+
+        function login() {
+            const usernameInput = document.getElementById('login-username').value.trim();
+            const passwordInput = document.getElementById('login-password').value;
+
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users.find(u =>
+                (u.username === usernameInput || u.email === usernameInput) &&
+                u.password === passwordInput
+            );
+
+            if (!user) {
+                alert("Invalid username/email or password");
+                return false;
+            }
+
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            localStorage.setItem('isAuthenticated', 'true');
+            return true;
+        }
+
+        function signup() {
+            const username = document.getElementById("signup-username").value.trim();
+            const email = document.getElementById("signup-email").value.trim();
+            const phone = document.getElementById("signup-phone").value.trim();
+            const password = document.getElementById("signup-password").value;
+            const confirmPassword = document.getElementById("signup-confirm-password").value;
+
+            if (!username || !email || !phone || !password || !confirmPassword) {
+                alert("Please fill all fields.");
+                return;
+            }
+
+            if (!email.includes('@')) {
+                alert("Please enter a valid email.");
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const existing = users.find(u => u.email === email);
+            if (existing) {
+                alert("An account with this email already exists.");
+                return;
+            }
+
+            const user = { username, email, phone, password };
+            users.push(user);
+            localStorage.setItem('users', JSON.stringify(users));
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            localStorage.setItem('isAuthenticated', 'true');
+            alert("Account created successfully! Logging you in...");
+            window.location.href = 'index.html';
+        }
+
+        function sendResetCode() {
+            const email = document.getElementById('reset-email').value.trim();
+            if (!email) {
+                alert('Please enter your email address');
+                return;
+            }
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users.find(u => u.email === email);
+            if (!user) {
+                alert('No account associated with that email. Please sign up.');
+                return;
+            }
+            const resetCode = Math.floor(100000 + Math.random() * 900000).toString();
+            user.resetCode = resetCode;
+            localStorage.setItem('users', JSON.stringify(users));
+            alert(`Reset code sent to ${email}. Your code is: ${resetCode}`);
+            document.getElementById('reset-step1').style.display = 'none';
+            document.getElementById('reset-step2').style.display = 'block';
+        }
+
+        function resetPassword() {
+            const email = document.getElementById('reset-email').value.trim();
+            const code = document.getElementById('reset-code').value;
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-new-password').value;
+
+            if (newPassword !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users.find(u => u.email === email);
+
+            if (!user || user.resetCode !== code) {
+                alert('Invalid reset code');
+                return;
+            }
+
+            user.password = newPassword;
+            delete user.resetCode;
+            localStorage.setItem('users', JSON.stringify(users));
+            alert('Password reset successful. Please log in.');
+            showLogin();
+        }
+
+        function connectWithGoogle() {
+            alert("Google connection coming soon!");
+        }
+
+        function connectWithFacebook() {
+            alert("Facebook connection coming soon!");
+        }
+
+        function connectWithApple() {
+            alert("Apple connection coming soon!");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phones - Swayam's Digital Mart</title>
+    <link rel="stylesheet" href="css/phone.css">
+</head>
+<body>
+
+    <header>
+        <h1>Phones Collection</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="wishlist.html">Wishlist</a>
+        </nav>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search phones...">
+            <button onclick="searchProducts()">Search</button>
+        </div>
+        <div class="filter-container">
+            <select id="priceFilter">
+                <option value="">Price Range</option>
+                <option value="0-14999">Under ₹15,000</option>
+                <option value="15000-19999">₹15,000 - ₹19,999</option>
+                <option value="20000-24999">₹20,000 - ₹24,999</option>
+                <option value="25000-999999">Above ₹25,000</option>
+            </select>
+            <select id="ratingFilter">
+                <option value="">Rating</option>
+                <option value="4.5">4.5 Stars & Above</option>
+                <option value="4.0">4.0 Stars & Above</option>
+                <option value="3.5">3.5 Stars & Above</option>
+            </select>
+            <button onclick="applyFilters()">Apply Filters</button>
+        </div>
+    </header>
+
+    <section class="products">
+        <div class="product" data-price="14999" data-rating="4.9" onclick="viewProductDetails('APPLE iPhone 14 Pro Max ( 128 GB Storage )', 'A15 Bionic chip | 6.7  Super Retina XDR display | Ceramic Shield protection | 5G capable', 14999, ['images/phone1.jpg', 'images/phone1.1.jpg', 'images/phone1.2.jpg', 'images/phone1.3.jpg'])">
+            <img src="images/phone1.jpg" alt="Phone Model 1">
+            <h2>APPLE iPhone 14 Pro Max ( 128 GB Storage )</h2>
+            <p>A15 Bionic chip | 6.7" Super Retina XDR display | Ceramic Shield protection | 5G capable</p>
+            <div class="rating">★★★★★ (4.9/5)</div>
+            <p>Price: ₹14,999</p>
+        </div>
+
+        <div class="product" data-price="18999" data-rating="4.6" onclick="viewProductDetails('iQOO 12 16GB+512GB Legend', 'Snapdragon 8 Gen 2 | 144Hz AMOLED display | 5000mAh battery | 120W fast charging', 18999, ['images/phone2.jpg', 'images/phone2.1.jpg', 'images/phone2.2.jpg', 'images/phone2.3.jpg'])">
+            <img src="images/phone2.jpg" alt="Phone Model 2">
+            <h2>iQOO 12 16GB+512GB Legend</h2>
+            <p>Snapdragon 8 Gen 2 | 144Hz AMOLED display | 5000mAh battery | 120W fast charging</p>
+            <div class="rating">★★★★☆ (4.6/5)</div>
+            <p>Price: ₹18,999</p>
+        </div>
+
+        <div class="product" data-price="22999" data-rating="4.5" onclick="viewProductDetails('OnePlus Nord CE4 lite 5G', '6.59 120Hz Fluid AMOLED | 64MP triple camera | 5000mAh battery | 33W fast charging', 22999, ['images/phone3.jpg', 'images/phone3.1.jpg', 'images/phone3.2.jpg', 'images/phone3.3.jpg'])">
+            <img src="images/phone3.jpg" alt="Phone Model 3">
+            <h2>OnePlus Nord CE4 lite 5G</h2>
+            <p>6.59" 120Hz Fluid AMOLED | 64MP triple camera | 5000mAh battery | 33W fast charging</p>
+            <div class="rating">★★★★☆ (4.5/5)</div>
+            <p>Price: ₹22,999</p>
+        </div>
+
+        <div class="product" data-price="27999" data-rating="4.8" onclick="viewProductDetails('vivo X200 5G V2405A', '6.78 AMOLED 120Hz | Dimensity 9200 | 50MP main camera | 4800mAh battery | 80W fast charge', 27999, ['images/phone4.jpg', 'images/phone4.1.jpg', 'images/phone4.2.jpg', 'images/phone4.3.jpg'])">
+            <img src="images/phone4.jpg" alt="Phone Model 4">
+            <h2>vivo X200 5G V2405A</h2>
+            <p>6.78" AMOLED 120Hz | Dimensity 9200 | 50MP main camera | 4800mAh battery | 80W fast charge</p>
+            <div class="rating">★★★★★ (4.8/5)</div>
+            <p>Price: ₹27,999</p>
+        </div>
+
+        <div class="product" data-price="15999" data-rating="4.7" onclick="viewProductDetails('Samsung Galaxy M34 5G', '6.5 Super AMOLED | 50MP triple camera | 6000mAh battery | 25W fast charging', 15999, ['images/phone5.webp', 'images/phone5.1.webp', 'images/phone5.2.webp', 'images/phone5.3.webp'])">
+            <img src="images/phone5.webp" alt="Phone Model 5">
+            <h2>Samsung Galaxy M34 5G</h2>
+            <p>6.5" Super AMOLED | 50MP triple camera | 6000mAh battery | 25W fast charging</p>
+            <div class="rating">★★★★☆ (4.7/5)</div>
+            <p>Price: ₹15,999</p>
+        </div>
+
+        <div class="product" data-price="20999" data-rating="4.4" onclick="viewProductDetails('Realme Narzo 60 Pro 5G', '6.7 AMOLED 120Hz | 100MP camera | 5000mAh battery | 67W fast charging', 20999, ['images/phone6.webp', 'images/phone6.1.jpg', 'images/phone6.2.jpg', 'images/phone6.3.jpg'])">
+            <img src="images/phone6.webp" alt="Phone Model 6">
+            <h2>Realme Narzo 60 Pro 5G</h2>
+            <p>6.7" AMOLED 120Hz | 100MP camera | 5000mAh battery | 67W fast charging</p>
+            <div class="rating">★★★★☆ (4.4/5)</div>
+            <p>Price: ₹20,999</p>
+        </div>
+
+        <div class="product" data-price="24999" data-rating="4.6" onclick="viewProductDetails('Xiaomi 13 Lite', '6.55 AMOLED 120Hz | 50MP triple camera | 4500mAh battery | 67W fast charging', 24999, ['images/phone7.png', 'images/phone7.1.png', 'images/phone7.2.png', 'images/phone7.3.jpg'])">
+            <img src="images/phone7.png" alt="Phone Model 7">
+            <h2>Xiaomi 13 Lite</h2>
+            <p>6.55" AMOLED 120Hz | 50MP triple camera | 4500mAh battery | 67W fast charging</p>
+            <div class="rating">★★★★☆ (4.6/5)</div>
+            <p>Price: ₹24,999</p>
+        </div>
+
+        <div class="product" data-price="17999" data-rating="4.3" onclick="viewProductDetails('Motorola Edge 40 Neo', '6.55 pOLED 144Hz | 50MP camera | 5000mAh battery | 68W fast charging', 17999, ['images/phone8.png', 'images/phone8.1.jpg', 'images/phone8.2.webp', 'images/phone8.3.png'])">
+            <img src="images/phone8.png" alt="Phone Model 8">
+            <h2>Motorola Edge 40 Neo</h2>
+            <p>6.55" pOLED 144Hz | 50MP camera | 5000mAh battery | 68W fast charging</p>
+            <div class="rating">★★★★☆ (4.3/5)</div>
+            <p>Price: ₹17,999</p>
+        </div>
+
+        <div class="product" data-price="29999" data-rating="4.8" onclick="viewProductDetails('Google Pixel 7a', '6.1  OLED 90Hz | 64MP camera | 4400mAh battery | 18W fast charging', 29999, ['images/phone9.webp', 'images/phone9.1.jpg', 'images/phone9.2.webp', 'images/phone9.3.jpg'])">
+            <img src="images/phone9.webp" alt="Phone Model 9">
+            <h2>Google Pixel 7a</h2>
+            <p>6.1" OLED 90Hz | 64MP camera | 4400mAh battery | 18W fast charging</p>
+            <div class="rating">★★★★★ (4.8/5)</div>
+            <p>Price: ₹29,999</p>
+        </div>
+
+        <div class="product" data-price="21999" data-rating="4.6" onclick="viewProductDetails('OnePlus Nord 3 5G', '6.74 AMOLED 120Hz | 50MP main camera | 5000mAh battery | 80W fast charging', 21999, ['images/phone10.png', 'images/phone10.1.jpg', 'images/phone10.2.jpg', 'images/phone10.3.jpg'])">
+            <img src="images/phone10.png" alt="Phone Model 11">
+            <h2>OnePlus Nord 3 5G</h2>
+            <p>6.74" AMOLED 120Hz | 50MP main camera | 5000mAh battery | 80W fast charging</p>
+            <div class="rating">★★★★☆ (4.6/5)</div>
+            <p>Price: ₹21,999</p>
+        </div>
+    </section>
+
+    <script>
+        function viewProductDetails(name, description, price, images) {
+            const product = {
+                name: name,
+                description: description,
+                price: price,
+                images: images
+            };
+            localStorage.setItem("selectedProduct", JSON.stringify(product));
+            window.location.href = "productdetails.html";
+        }
+
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+            
+            products.forEach(product => {
+                const productName = product.querySelector('h2').textContent.toLowerCase();
+                if (productName.includes(searchTerm)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        function applyFilters() {
+            const priceFilter = document.getElementById('priceFilter').value;
+            const ratingFilter = document.getElementById('ratingFilter').value;
+            const products = document.querySelectorAll('.product');
+
+            products.forEach(product => {
+                const productPrice = parseFloat(product.getAttribute('data-price'));
+                const productRating = parseFloat(product.getAttribute('data-rating'));
+                
+                let priceMatch = true;
+                let ratingMatch = true;
+
+                if (priceFilter) {
+                    const [minPrice, maxPrice] = priceFilter.split('-').map(Number);
+                    priceMatch = productPrice >= minPrice && productPrice <= maxPrice;
+                }
+
+                if (ratingFilter) {
+                    ratingMatch = productRating >= parseFloat(ratingFilter);
+                }
+
+                if (priceMatch && ratingMatch) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <script src="js/phone.js"></script>
+</body>
+</html>

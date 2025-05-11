@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Your Shopping Cart 🛒</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="payment.html">Payment</a>
+        </nav>
+    </header>
+    <!-- Preload images for better performance -->
+    <div id="cart-images" style="display: none;">
+        <img id="earbuds-img" src="images/earbud1.webp" alt="Earbuds">
+    </div>
+
+    <div class="cart-container">
+        <h2>Items in Your Cart:</h2>
+        <ul id="cart-items"></ul>
+        <p>Total Price: ₹<span id="total-price">0.00</span></p>
+        <button onclick="window.location.href='payment.html'">Proceed to Payment</button>
+    </div>
+
+    <script src="js/cart.js"></script>
+</body>
+</html>

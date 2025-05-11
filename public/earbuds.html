@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earbuds - Swayam's Digital Mart</title>
+    <link rel="stylesheet" href="css/earbuds.css">
+</head>
+<body>
+
+    <header>
+        <h1>Earbuds Collection</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="wishlist.html">Wishlist</a>
+        </nav>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search earbuds...">
+            <button onclick="searchProducts()">Search</button>
+            <div class="filter-container">
+                <select id="priceFilter">
+                    <option value="">Price Range</option>
+                    <option value="0-2000">₹0 - ₹2000</option>
+                    <option value="2000-3000">₹2000 - ₹3000</option>
+                    <option value="3000-4000">₹3000 - ₹4000</option>
+                </select>
+                <select id="ratingFilter">
+                    <option value="">Rating</option>
+                    <option value="4.5">★★★★☆ & above</option>
+                    <option value="4.0">★★★★☆ & above</option>
+                    <option value="3.5">★★★☆☆ & above</option>
+                </select>
+                <button onclick="filterProducts()">Filter</button>
+            </div>
+        </div>
+    </header>
+    <section class="products">
+        <div class="product" data-price="1999" data-rating="4.2" onclick="viewProductDetails('Boat Airdopes 131', 'Wireless Bluetooth 5.0 | 20hrs Playtime | IPX5 Waterproof', 1999, ['images/earbud1.webp', 'images/earbud1.1.webp', 'images/earbud1.2.webp', 'images/earbud1.3.webp'], '★★★★☆ (4.2/5)')">
+            <img src="images/earbud1.webp" alt="Earbuds Model 1">
+            <h2>Boat Airdopes 131</h2>
+            <p>Wireless Bluetooth 5.0 | 20hrs Playtime | IPX5 Waterproof</p>
+            <div class="rating">★★★★☆ (4.2/5)</div>
+            <p>Price: ₹1999</p>
+        </div>
+        <div class="product" data-price="2499" data-rating="4.8" onclick="viewProductDetails('pTron Bassbuds Duo Pro TWS', 'Active Noise Cancellation | 30hrs Battery | Touch Controls', 2499, ['images/earbud2.jpg', 'images/earbud2.1.jpg', 'images/earbud2.2.jpg', 'images/earbud2.3.jpg'], '★★★★★ (4.8/5)')">
+            <img src="images/earbud2.jpg" alt="Earbuds Model 2">
+            <h2>pTron Bassbuds Duo Pro TWS</h2>
+            <p>Active Noise Cancellation | 30hrs Battery | Touch Controls</p>
+            <div class="rating">★★★★★ (4.8/5)</div>
+            <p>Price: ₹2499</p>
+        </div>
+
+        <div class="product" data-price="2999" data-rating="4.5" onclick="viewProductDetails('Harmonics Twins S19', 'Bass Boost Technology | 25hrs Playtime | Wireless Charging Case | Dual Mic ENC | Type-C Fast Charging | IPX4 Sweat Resistance', 2999, ['images/earbud3.jpg', 'images/earbud3.1.jpg', 'images/earbud3.2.webp', 'images/earbud3.3.jpg'], '★★★★☆ (4.5/5)')">
+            <img src="images/earbud3.jpg" alt="Earbuds Model 3">
+            <h2>Harmonics Twins S19</h2>
+            <p>Bass Boost Technology | 25hrs Playtime | Wireless Charging Case | Dual Mic ENC | Type-C Fast Charging | IPX4 Sweat Resistance</p>
+            <div class="rating">★★★★☆ (4.5/5)</div>
+            <p>Price: ₹2999</p>
+        </div>
+
+        <div class="product" data-price="3499" data-rating="4.9" onclick="viewProductDetails('Beats Solo Buds', 'True Wireless Stereo | 40hrs BatteryLife| Google Assistant', 3499, ['images/earbud4.jpeg', 'images/earbud4.1.jpg', 'images/earbud4.2.jpg', 'images/earbud4.3.jpg'], '★★★★★ (4.9/5)')">
+            <img src="images/earbud4.jpeg" alt="Earbuds Model 4">
+            <h2>Beats Solo Buds</h2>
+            <p>True Wireless Stereo | 40hrs BatteryLife| Google Assistant</p>
+            <div class="rating">★★★★★ (4.9/5)</div>
+            <p>Price: ₹3499</p>
+        </div>
+
+        <div class="product" data-price="1799" data-rating="4.1" onclick="viewProductDetails('Noise Buds VS104', 'Bluetooth 5.1 | 24hrs Playtime | ENC Mic | IPX5 Waterproof', 1799, ['images/earbud5.jpg', 'images/earbud5.1.avif', 'images/earbud5.2.jpg', 'images/earbud5.3.jpeg'], '★★★★☆ (4.1/5)')">
+            <img src="images/earbud5.jpg" alt="Earbuds Model 5">
+            <h2>Wholesale T68PRO Earbuds</h2>
+            <p>Bluetooth 5.1 | 24hrs Playtime | ENC Mic | IPX5 Waterproof | Touch Controls | Low Latency Mode</p>
+            <div class="rating">★★★★☆ (4.1/5)</div>
+            <p>Price: ₹1799</p>
+        </div>
+
+        <div class="product" data-price="3999" data-rating="4.7" onclick="viewProductDetails('Sony WF-C500', 'True Wireless | 20hrs Battery | Quick Charge | IPX4 Waterproof', 3999, ['images/earbud6.jpg', 'images/earbud6.1.webp', 'images/earbud6.2.jpg', 'images/earbud6.3.webp'], '★★★★☆ (4.7/5)')">
+            <img src="images/earbud6.jpg" alt="Earbuds Model 6">
+            <h2>Sony WF-C500</h2>
+            <p>True Wireless | 20hrs Battery | Quick Charge | IPX4 Waterproof</p>
+            <div class="rating">★★★★☆ (4.7/5)</div>
+            <p>Price: ₹3999</p>
+        </div>
+
+        <div class="product" data-price="1299" data-rating="3.9" onclick="viewProductDetails('Mivi DuoPods A25', 'Bluetooth 5.0 | 30hrs Playtime | Touch Controls | IPX4 Waterproof', 1299, ['images/earbud7.jpg', 'images/earbud7.1.webp', 'images/earbud7.2.jpg', 'images/earbud7.3.jpg'], '★★★★☆ (3.9/5)')">
+            <img src="images/earbud7.jpg" alt="Earbuds Model 7">
+            <h2>Mivi DuoPods A25</h2>
+            <p>Bluetooth 5.0 | 30hrs Playtime | Touch Controls | IPX4 Waterproof</p>
+            <div class="rating">★★★★☆ (3.9/5)</div>
+            <p>Price: ₹1299</p>
+        </div>
+
+        <div class="product" data-price="4999" data-rating="4.9" onclick="viewProductDetails('Jabra Elite 3', 'True Wireless | 28hrs Battery | IP55 Waterproof | Customizable Sound', 4999, ['images/earbud8.jpg', 'images/earbud8.1.jpg', 'images/earbud8.2.jpg', 'images/earbud8.3.webp'], '★★★★★ (4.9/5)')">
+            <img src="images/earbud8.jpg" alt="Earbuds Model 8">
+            <h2>Jabra Elite 3</h2>
+            <p>True Wireless | 28hrs Battery | IP55 Waterproof | Customizable Sound</p>
+            <div class="rating">★★★★★ (4.9/5)</div>
+            <p>Price: ₹4999</p>
+        </div>
+
+        <div class="product" data-price="999" data-rating="3.8" onclick="viewProductDetails('Realme Buds Q2', 'Bluetooth 5.2 | 20hrs Playtime | ENC Mic | IPX4 Waterproof', 999, ['images/earbud9.jpg', 'images/earbud9.1.png', 'images/earbud9.2.jpg', 'images/earbud9.3.jpg'], '★★★★☆ (3.8/5)')">
+            <img src="images/earbud9.jpg" alt="Earbuds Model 9">
+            <h2>Realme Buds Q2</h2>
+            <p>Bluetooth 5.2 | 20hrs Playtime | ENC Mic | IPX4 Waterproof</p>
+            <div class="rating">★★★★☆ (3.8/5)</div>
+            <p>Price: ₹999</p>
+        </div>
+
+        <div class="product" data-price="5999" data-rating="4.8" onclick="viewProductDetails('Samsung Galaxy Buds2', 'Active Noise Cancellation | 20hrs Battery | Wireless Charging | IPX2 Waterproof', 5999, ['images/earbud10.jpg', 'images/earbud10.1.jpg', 'images/earbud10.2.jpg', 'images/earbud10.3.jpg'], '★★★★★ (4.8/5)')">
+            <img src="images/earbud10.jpg" alt="Earbuds Model 10">
+            <h2>Samsung Galaxy Buds2</h2>
+            <p>Active Noise Cancellation | 20hrs Battery | Wireless Charging | IPX2 Waterproof</p>
+            <div class="rating">★★★★★ (4.8/5)</div>
+            <p>Price: ₹5999</p>
+        </div>
+
+        <div class="product" data-price="4499" data-rating="4.6" onclick="viewProductDetails('OnePlus Buds Z2', 'Active Noise Cancellation | 38hrs Battery | Fast Charging | IP55 Waterproof', 4499, ['images/earbud11.jpg', 'images/earbud11.1.jpg', 'images/earbud11.2.jpg', 'images/earbud11.3.jpg'], '★★★★☆ (4.6/5)')">
+            <img src="images/earbud11.jpg" alt="Earbuds Model 11">
+            <h2>OnePlus Buds Z2</h2>
+            <p>Active Noise Cancellation | 38hrs Battery | Fast Charging | IP55 Waterproof</p>
+            <div class="rating">★★★★☆ (4.6/5)</div>
+            <p>Price: ₹4499</p>
+        </div>
+
+        <div class="product" data-price="7999" data-rating="4.9" onclick="viewProductDetails('Apple AirPods Pro', 'Active Noise Cancellation | 24hrs Battery | Spatial Audio | IPX4 Waterproof', 7999, ['images/earbud12.webp', 'images/earbud12.1.webp', 'images/earbud12.2.jpg', 'images/earbud12.3.jpg'], '★★★★★ (4.9/5)')">
+            <img src="images/earbud12.webp" alt="Earbuds Model 12">
+            <h2>Apple AirPods Pro</h2>
+            <p>Active Noise Cancellation | 24hrs Battery | Spatial Audio | IPX4 Waterproof</p>
+            <div class="rating">★★★★★ (4.9/5)</div>
+            <p>Price: ₹7999</p>
+        </div>
+
+        <div class="product" data-price="1499" data-rating="4.0" onclick="viewProductDetails('Boat Airdopes 441', 'Bluetooth 5.0 | 25hrs Playtime | IPX7 Waterproof | Type-C Charging', 1499, ['images/earbud13.webp', 'images/earbud13.1.webp', 'images/earbud13.2.webp', 'images/earbud13.3.webp'], '★★★★☆ (4.0/5)')">
+            <img src="images/earbud13.webp" alt="Earbuds Model 13">
+            <h2>Boat Airdopes 441</h2>
+            <p>Bluetooth 5.0 | 25hrs Playtime | IPX7 Waterproof | Type-C Charging</p>
+            <div class="rating">★★★★☆ (4.0/5)</div>
+            <p>Price: ₹1499</p>
+        </div>
+
+        <div class="product" data-price="2999" data-rating="4.5" onclick="viewProductDetails('Oppo Enco Air2 Pro', 'Active Noise Cancellation | 28hrs Battery | Fast Charging | IP54 Waterproof', 2999, ['images/earbud14.png', 'images/earbud14.1.jpg', 'images/earbud14.2.jpg', 'images/earbud14.3.jpg'], '★★★★☆ (4.5/5)')">
+            <img src="images/earbud14.png" alt="Earbuds Model 14">
+            <h2>Oppo Enco Air2 Pro</h2>
+            <p>Active Noise Cancellation | 28hrs Battery | Fast Charging | IP54 Waterproof</p>
+            <div class="rating">★★★★☆ (4.5/5)</div>
+            <p>Price: ₹2999</p>
+        </div>
+
+        <div class="product" data-price="2499" data-rating="4.3" onclick="viewProductDetails('Nothing Ear (1)', 'Active Noise Cancellation | 34hrs Battery | Fast Pairing | IPX4 Waterproof', 2499, ['images/earbud15.webp', 'images/earbud15.1.jpg', 'images/earbud15.2.jpg', 'images/earbud15.3.jpg'], '★★★★☆ (4.3/5)')">
+            <img src="images/earbud15.webp" alt="Earbuds Model 15">
+            <h2>Nothing Ear (1)</h2>
+            <p>Active Noise Cancellation | 34hrs Battery | Fast Pairing | IPX4 Waterproof</p>
+            <div class="rating">★★★★☆ (4.3/5)</div>
+            <p>Price: ₹2499</p>
+        </div>
+
+
+    </section>
+
+    <script>
+        function viewProductDetails(name, description, price, images) {
+            const product = {
+                name: name,
+                description: description,
+                price: price,
+                images: images
+            };
+            localStorage.setItem('selectedProduct', JSON.stringify(product));
+            window.location.href = 'productdetails.html';
+        }
+
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+            
+            products.forEach(product => {
+                const productName = product.querySelector('h2').textContent.toLowerCase();
+                if (productName.includes(searchTerm)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        function filterProducts() {
+            const priceRange = document.getElementById('priceFilter').value;
+            const ratingFilter = document.getElementById('ratingFilter').value;
+            const products = document.querySelectorAll('.product');
+
+            products.forEach(product => {
+                const price = parseFloat(product.getAttribute('data-price'));
+                const rating = parseFloat(product.getAttribute('data-rating'));
+                
+                let priceMatch = true;
+                let ratingMatch = true;
+
+                if (priceRange) {
+                    const [minPrice, maxPrice] = priceRange.split('-').map(Number);
+                    priceMatch = price >= minPrice && price <= maxPrice;
+                }
+
+                if (ratingFilter) {
+                    ratingMatch = rating >= parseFloat(ratingFilter);
+                }
+
+                if (priceMatch && ratingMatch) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <script src="js/earbuds.js"></script>
+</body>
+</html>
