@@ -56,6 +56,9 @@ TechSway allows users to browse electronic products, manage carts and wishlists,
 <img width="1890" height="733" alt="image" src="https://github.com/user-attachments/assets/b47b1ec3-c83b-4174-ac44-3c039210d823" />
 
 ---
+# Architecture Diagram
+<img width="1440" height="1482" alt="image" src="https://github.com/user-attachments/assets/c802852d-a41a-4cda-a22b-43b8689e640e" />
+
 
 ## ⚙️ Setup Instructions
 
